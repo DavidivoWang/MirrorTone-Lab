@@ -83,3 +83,46 @@ html{color-scheme:light}
   .library-card .lib-index,.library-card .lib-status,.work-meta{color:#4b5f5b;font-weight:650}
   .position-copy p,.section-head>p{color:#3f5350;font-weight:500}
 }
+
+/* Bilingual parity + research-map clarity pass */
+.hero-right{
+  background:linear-gradient(150deg,#183843 0%,#102b36 52%,#0a2029 100%);
+  border-color:#8aa7ad55;
+}
+.atlas-svg .orbit-outer{stroke:#94aeb4;stroke-opacity:.42}
+.atlas-svg .orbit-middle{stroke:#8fa9af;stroke-opacity:.38}
+.atlas-svg .atlas-line{stroke:#b7c9cc;stroke-opacity:.78;stroke-width:1.45}
+.atlas-svg .atlas-frame{stroke:#9fb7bb;stroke-opacity:.50;stroke-width:1.15}
+.atlas-svg .moving-path{stroke:#e2b86f;stroke-width:2.35;filter:drop-shadow(0 0 4px rgba(226,184,111,.42))}
+.atlas-svg .center-halo{stroke:#e0bb7b;stroke-opacity:.95;stroke-width:1.4}
+.atlas-svg .center-ring{stroke:#d9b477;stroke-opacity:.42;stroke-width:1}
+.atlas-svg .atlas-node{fill:#e7c284}
+.atlas-svg .node-ring{stroke:#e7c284;stroke-opacity:.64;stroke-width:1.15}
+.atlas-svg text{fill:#dce6e5;font-weight:600}
+.atlas-svg .atlas-labels text{fill:#c5d3d4;font-weight:600}
+.diagram-top,.diagram-bottom{color:#b8c7c9}
+.state-loop{border-top-color:#94adb355}
+.state-step{color:#b6c5c7;font-weight:600}
+.state-step:before{background:#88a0a5}
+.state-step:after{background:#96adb13f}
+.state-step.active:before{background:#dfb66f}
+html[lang="zh-Hant"] .principles,
+html[lang="en"] .principles{background:#0a1a23;color:#f6f5f0}
+html[lang="zh-Hant"] .principle-panel h3,
+html[lang="en"] .principle-panel h3{color:#f7f3eb}
+html[lang="zh-Hant"] .principle-panel p,
+html[lang="en"] .principle-panel p{color:#cbd6d5}
+html[lang="zh-Hant"] .principle-tab,
+html[lang="en"] .principle-tab{color:#aebec1}
+html[lang="zh-Hant"] .principle-tab.active,
+html[lang="en"] .principle-tab.active{color:#f0cf9b}
+@media(max-width:600px){
+  .hero-right{height:405px}
+  .atlas-svg{width:100%;max-height:92%}
+  .atlas-svg text{font-size:12.5px!important}
+  .atlas-svg .atlas-labels text{font-size:12.5px!important;letter-spacing:1.25px}
+  .state-loop{left:14px;right:14px;bottom:45px;padding-top:10px}
+  .state-step{font-size:8px;letter-spacing:.05em}
+  .diagram-top{font-size:9px}
+  .diagram-bottom{font-size:8.5px}
+}
