@@ -126,3 +126,21 @@ html[lang="en"] .principle-tab.active{color:#f0cf9b}
   .diagram-top{font-size:9px}
   .diagram-bottom{font-size:8.5px}
 }
+
+/* Footer link accessibility / tap targets */
+.footer-links a{
+  display:inline-flex;
+  align-items:center;
+  min-height:34px;
+  width:fit-content;
+  position:relative;
+  z-index:2;
+  text-decoration-thickness:1px;
+  text-underline-offset:4px;
+}
+.footer-links a:hover,
+.footer-links a:focus-visible{color:var(--gold-2)}
+@media(max-width:860px){
+  .footer-links a{min-height:44px;padding:6px 0;font-size:13px}
+  .footer-links>div{gap:8px}
+}
