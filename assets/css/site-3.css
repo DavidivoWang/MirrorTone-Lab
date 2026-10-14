@@ -37,3 +37,49 @@ html{color-scheme:light}
   .principle-panel p{color:#c9d4d3}
   .panel-bottom{color:#a9b9bb}
 }
+
+/* Visual hierarchy pass v2 — stronger first-impression contrast */
+:root{
+  --surface-title:#183137;
+  --surface-body:#3f5350;
+  --surface-meta:#556965;
+  --surface-faint:#667974;
+}
+.research-card{background:#f4f4ef}
+.research-card.featured{background:#d9dfdb}
+.research-card:hover{background:#ecefe9}
+.research-card h3,
+.library-card h3,
+.work-details h3,
+.note-row h3,
+.repo-card h3,
+.prose h2{color:var(--surface-title);font-weight:600}
+.research-card p,
+.library-card p,
+.work-details p,
+.repo-card p,
+.prose p,
+.prose li{color:var(--surface-body);font-weight:450}
+.card-top,.card-label,.card-bottom,
+.library-card .lib-index,.library-card .lib-status,
+.work-meta,.site-footer-simple{color:var(--surface-meta);font-weight:600}
+.position-copy p,.section-head>p{color:#455956}
+.position-motto{color:#1f373d}
+.evidence-note{color:#50625e}
+.library-card{background:#f3f3ee}
+.library-card:hover{background:#e9ece6}
+.work-card{background:#f5f4ef}
+.note-row,.repo-card{background:#f4f4ef}
+.note-row p{color:#475a56}
+.boundary-box{color:#3f514e;background:#e5e8e2}
+@media(max-width:600px){
+  .research-card{background:#f2f2ed}
+  .research-card.featured{background:#d5ddd8}
+  .research-card h3{color:#132d34;font-size:28px;font-weight:650}
+  .research-card p{color:#344945;font-size:15.5px;font-weight:500}
+  .card-top,.card-label,.card-bottom{color:#485d59;font-weight:650}
+  .library-card h3,.work-details h3,.note-row h3,.repo-card h3,.prose h2{color:#132d34;font-weight:650}
+  .library-card p,.work-details p,.repo-card p,.prose p,.prose li{color:#384c48;font-weight:500}
+  .library-card .lib-index,.library-card .lib-status,.work-meta{color:#4b5f5b;font-weight:650}
+  .position-copy p,.section-head>p{color:#3f5350;font-weight:500}
+}
