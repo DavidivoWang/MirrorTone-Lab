@@ -230,3 +230,43 @@ html[lang="en"] .principle-tab.active{color:#f0cf9b}
   .signal-status span{font-size:8.4px}
   .signal-pressure p{font-size:12.5px}
 }
+
+/* Mobile navigation overlay fix — 2026-10-17 */
+body.menu-open{overflow:hidden;touch-action:none}
+@media(max-width:860px){
+  .site-header{z-index:200}
+  .nav{
+    display:none;
+    position:absolute;
+    top:76px;
+    left:0;
+    right:0;
+    height:calc(100dvh - 76px);
+    max-height:calc(100dvh - 76px);
+    overflow-y:auto;
+    overscroll-behavior:contain;
+    -webkit-overflow-scrolling:touch;
+    flex-direction:column;
+    align-items:stretch;
+    gap:0;
+    margin:0;
+    padding:18px 26px calc(28px + env(safe-area-inset-bottom));
+    background:#102932;
+    border-top:1px solid #50686f38;
+    border-bottom:0;
+    box-shadow:none;
+    z-index:210;
+  }
+  .nav.open{display:flex}
+  .nav a{
+    flex:0 0 auto;
+    padding:18px 0;
+    border-bottom:1px solid #58717838;
+    font-size:15px;
+    line-height:1.5;
+  }
+  .nav a:last-child{border-bottom:0}
+}
+@media(max-width:600px){
+  .nav{padding-left:18px;padding-right:18px}
+}
