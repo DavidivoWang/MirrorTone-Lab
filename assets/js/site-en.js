@@ -38,20 +38,28 @@
   const menu=document.getElementById('nav');
   const toggle=document.getElementById('menuToggle');
   const openLabel='Open menu',closeLabel='Close menu';
-  toggle.addEventListener('click',()=>{
-    const open=menu.classList.toggle('open');
+  const setMenuState=(open)=>{
+    if(!menu||!toggle)return;
+    menu.classList.toggle('open',open);
+    document.body.classList.toggle('menu-open',open);
     toggle.setAttribute('aria-expanded',String(open));
     toggle.setAttribute('aria-label',open?closeLabel:openLabel);
-  });
-  const closeMenu=()=>{menu.classList.remove('open');toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label',openLabel);};
-  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
-  window.addEventListener('keydown',event=>{if(event.key==='Escape')closeMenu();});
+  };
+  const closeMenu=()=>setMenuState(false);
+  if(menu&&toggle){
+    toggle.addEventListener('click',()=>setMenuState(!menu.classList.contains('open')));
+    menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
+    window.addEventListener('keydown',event=>{if(event.key==='Escape')closeMenu();});
+    window.addEventListener('resize',()=>{if(window.innerWidth>860)closeMenu();},{passive:true});
+  }
   let queued=false;
   function scrollUpdate(){
     queued=false;
     const max=document.documentElement.scrollHeight-window.innerHeight;
-    document.getElementById('readProgress').style.width=(max>0?Math.min(100,window.scrollY/max*100):0)+'%';
-    document.getElementById('siteHeader').classList.toggle('scrolled',window.scrollY>26);
+    const progress=document.getElementById('readProgress');
+    const header=document.getElementById('siteHeader');
+    if(progress)progress.style.width=(max>0?Math.min(100,window.scrollY/max*100):0)+'%';
+    if(header)header.classList.toggle('scrolled',window.scrollY>26);
   }
   window.addEventListener('scroll',()=>{if(!queued){queued=true;requestAnimationFrame(scrollUpdate);}},{passive:true});
   scrollUpdate();
