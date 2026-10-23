@@ -41,4 +41,37 @@
 <div class="signal-field signal-watch"><b>WATCH NEXT</b><span class="review-date">REVIEW · 2027-01-17</span><p>回看主要 agent 平台與前沿 lab 的公開文件：是否有至少一家把 network policy、tool capability scoping、sensitive-action protection 或 independent monitoring 明確升成產品／部署層預設。這是觀察點，不是機率預測。</p></div>
 </div><div class="signal-tags"><span class="signal-tag">TOOL CHAIN</span><span class="signal-tag">BOUNDARY</span><span class="signal-tag">DEFENSE-IN-DEPTH</span></div></article>
 
-</div></div></div></section></main><footer class="site-footer-simple"><div class="shell">MirrorTone Lab · Frontier Signals · Last public update: 2026-10-17</div></footer><script defer src="../assets/js/site.js?v=20261017d"></script></body></html>
+<article class="signal-entry"><div class="signal-entry-head"><div><div class="signal-entry-date">2026.10.04 · CONCORD · EXTERNAL BENCHMARK</div><h2>工具讀到的內容留在 context，不代表它還是現在的狀態</h2></div><a class="signal-entry-source" href="https://arxiv.org/abs/2610.05281" target="_blank" rel="noopener noreferrer">原始來源 ↗</a></div><div class="signal-entry-grid">
+<div class="signal-field"><b>SOURCE TOPOLOGY</b><span class="field-status">作者論文＋公開實作</span><p>目前依據是作者公開的 arXiv 論文與 Concord／ConcordBench 程式庫。這不是新聞轉述；但本頁沒有把作者自己的 benchmark 結果冒充獨立複驗。</p></div>
+<div class="signal-field"><b>PRIOR</b><span class="field-status">EXISTING PUBLIC PRIOR</span><p>MirrorTone／MTEL 先前已公開區分 retrieval 與 current state；這項工作提供的是外部 benchmark 證據，不是把既有句子重新包裝成預測。</p></div>
+<div class="signal-field"><b>WHAT HAPPENED</b><p>Concord 把 tool observation 與可變動 source 綁在一起，source 改變時先更新、標記或排除 stale context 再讓模型使用。在 40 個 HotpotQA-derived 任務上，三個受測 frontier models 的 Concord 都達到 40/40 recover，與 no-race oracle 的 recover count 相同；作者並報告相較最強 non-oracle baseline 少用 46.4% tokens。</p></div>
+<div class="signal-field"><b>STRUCTURAL SIGNAL</b><p>觀測值進入 context 之後，source 仍可能改變。能把內容「讀進來」與能把它「當成現在可承重的 evidence」是兩件事。</p></div>
+<div class="signal-field"><b>MIRRORTONE RELEVANCE</b><p>這對 Evidence → Current State 的公開主線形成直接外部支撐，也把 provenance 推到更具體的位置：觀測如果來自可變 source，來源關係本身就值得保留。</p></div>
+<div class="signal-field"><b>FRAMEWORK PRESSURE / NON-FIT</b><p>Concord 主要修復 model-visible observation；它沒有自動修好已經由舊 observation 衍生出的 summary、plan 或 decision。那一截仍屬 dependency-aware rebind 的問題。</p></div>
+<div class="signal-field"><b>WORLD-MODEL UPDATE</b><span class="field-status">STRENGTHENED</span><p>「retrieval ≠ current state」不再只是治理直覺；現在已有外部系統以 source-linked context reconciliation 對同一 failure surface 做出可重跑實驗。</p></div>
+<div class="signal-field signal-watch"><b>WATCH NEXT</b><span class="review-date">REVIEW · 2027-01-23</span><p>觀察是否出現跨檔案以外 resource 的獨立重現，尤其是 MCP／database／multi-agent shared state，以及 stale observation 已衍生下游 plan 時的修復方法。</p></div>
+</div><div class="signal-tags"><span class="signal-tag">EVIDENCE</span><span class="signal-tag">CURRENT STATE</span><span class="signal-tag">PROVENANCE</span></div></article>
+
+<article class="signal-entry"><div class="signal-entry-head"><div><div class="signal-entry-date">2026.09.08 · CROSS-SUBSTRATE AUTHORITY · EXTERNAL EXPERIMENT</div><h2>Planner 看得到工作區，不等於它看得到授權</h2></div><a class="signal-entry-source" href="https://arxiv.org/abs/2609.08472" target="_blank" rel="noopener noreferrer">原始來源 ↗</a></div><div class="signal-entry-grid">
+<div class="signal-field"><b>SOURCE TOPOLOGY</b><span class="field-status">ARXIV · CONTROLLED EXPERIMENTS</span><p>目前依據是作者公開論文的 controlled mini-benchmarks；未把同源摘要當成第二份獨立證據。</p></div>
+<div class="signal-field"><b>PRIOR</b><span class="field-status">EXISTING PUBLIC PRIOR</span><p>Capability ≠ Authority 已是 MirrorTone／MTEL 的公開母句。這篇有價值的地方不是「像我們」，而是它把 authority 缺失做成可觀測的 controlled ablation。</p></div>
+<div class="signal-field"><b>WHAT HAPPENED</b><p>在 128-cell evidence ablation 中，authority-blind candidate evidence 是 0/32 final semantic success；加入 raw authority receipts 或 typed relation 都是 32/32。另一組固定 first-action intents 的 replay 裡，execution-time guard 擋下全部 6 個 unsafe intents，同時放行全部 12 個 valid authorized publish intents。</p></div>
+<div class="signal-field"><b>STRUCTURAL SIGNAL</b><p>授權資訊可以位在 planner-visible workspace／memory 之外；即使 planner 能理解更多 authority information，也不能把理解本身當成 enforcement。</p></div>
+<div class="signal-field"><b>MIRRORTONE RELEVANCE</b><p>這對 Authority surface、evidence of permission 與 mutation-boundary check 形成強外部支撐：能力、推理與可見狀態都不能自行生成 action authority。</p></div>
+<div class="signal-field"><b>FRAMEWORK PRESSURE / NON-FIT</b><p>論文本身沒有回答 authority 最終由誰產生、如何撤銷或如何回到人／機構責任；typed packaging 也沒有顯示比同資訊量的 raw receipt 更高 planning accuracy。</p></div>
+<div class="signal-field"><b>WORLD-MODEL UPDATE</b><span class="field-status">STRENGTHENED</span><p>公開模型往前一格：authority 不只要「被描述」，還要在真正會造成 mutation 的邊界被重新驗證。</p></div>
+<div class="signal-field signal-watch"><b>WATCH NEXT</b><span class="review-date">REVIEW · 2027-01-23</span><p>觀察是否有獨立團隊在 real multi-agent／production-like tool chain 重現 cross-substrate authority gap，並檢驗 revocation、delegation 與 human/institutional accountability。</p></div>
+</div><div class="signal-tags"><span class="signal-tag">AUTHORITY</span><span class="signal-tag">MUTATION BOUNDARY</span><span class="signal-tag">EXECUTION GUARD</span></div></article>
+
+<article class="signal-entry"><div class="signal-entry-head"><div><div class="signal-entry-date">2026.08.25 · GUARD PRECISION · EXTERNAL EXPERIMENT</div><h2>State 變了，不代表這個 action 就一定不安全</h2></div><a class="signal-entry-source" href="https://arxiv.org/abs/2609.29522" target="_blank" rel="noopener noreferrer">原始來源 ↗</a></div><div class="signal-entry-grid">
+<div class="signal-field"><b>SOURCE TOPOLOGY</b><span class="field-status">ARXIV · DETERMINISTIC REPLAY</span><p>目前依據是作者公開論文；研究使用 deterministic simulator 與 frozen proposals，沒有用 LLM judge 來決定安全結果。</p></div>
+<div class="signal-field"><b>PRIOR</b><span class="field-status">PUBLIC FRAME REQUIRES CORRECTION</span><p>我們原本強調 mutable state 的 fresh readback。這篇不是推翻 readback，而是迫使公開語義更精確：freshness 是偵測變動的 evidence，不是所有 action 的 universal safety predicate。</p></div>
+<div class="signal-field"><b>WHAT HAPPENED</b><p>研究在 16 個 infrastructure tasks 上重播 3,456 trajectories，比較 global epoch、read-set version 與 semantic commit predicate。三種 guard 都消除 unsafe commits；但 freshness-based guards 對 benign races 有 92–95% 的不必要阻擋，最多犧牲 43% safe task completions，而完整 semantic predicate guard 在該實驗中沒有阻擋 benign races。</p></div>
+<div class="signal-field"><b>STRUCTURAL SIGNAL</b><p>「資料比較舊」與「這個動作已失去安全條件」不是同一命題。若把 freshness 直接升格成安全門檻，安全可能保住，但可用性會被自己打掉。</p></div>
+<div class="signal-field"><b>MIRRORTONE RELEVANCE</b><p>這直接校正 Evidence → Current State 的判準：source change 應觸發檢查，但是否 HOLD／BLOCK 應看 action-bearing dependency 與 target-specific semantic predicate。</p></div>
+<div class="signal-field"><b>FRAMEWORK PRESSURE / NON-FIT</b><p>Semantic predicate 的精度取決於 contract 是否完整；研究也指出 degraded telemetry 下存在看不見的 mutation。這不是「有 predicate 就萬事安全」。</p></div>
+<div class="signal-field"><b>WORLD-MODEL UPDATE</b><span class="field-status">REVISION</span><p>公開語義從「fresh 才能承重」修正為「變動先觸發重判；真正承重的是這個變動是否破壞本次 action 的語義條件」。</p></div>
+<div class="signal-field signal-watch"><b>WATCH NEXT</b><span class="review-date">REVIEW · 2027-01-23</span><p>觀察 semantic guard 是否能跨不同工具／domain 保持低 false-block，以及 contract 缺漏時如何被測出，而不是由 planner 自我評估補洞。</p></div>
+</div><div class="signal-tags"><span class="signal-tag">CURRENT STATE</span><span class="signal-tag">SEMANTIC PREDICATE</span><span class="signal-tag">FALSE BLOCK</span></div></article>
+
+</div></div></div></section></main><footer class="site-footer-simple"><div class="shell">MirrorTone Lab · Frontier Signals · Last public update: 2026-10-23</div></footer><script defer src="../assets/js/site.js?v=20261017d"></script></body></html>
