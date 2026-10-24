@@ -270,3 +270,17 @@ body.menu-open{overflow:hidden;touch-action:none}
 @media(max-width:600px){
   .nav{padding-left:18px;padding-right:18px}
 }
+/* Minimal qualification snapshot — public evidence boundary */
+.evidence-snapshot{margin:-4px 0 34px;border-top:1px solid #9fb1ad66;border-bottom:1px solid #9fb1ad66;padding:17px 0 15px}
+.snapshot-head{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:13px}
+.snapshot-head>span{font-size:10px;letter-spacing:.14em;font-weight:700;color:#4d625e}
+.snapshot-head a{font-size:12px;font-weight:650;color:#314b50;text-decoration:none;border-bottom:1px solid #314b5066}
+.snapshot-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.snapshot-item{padding:8px 22px 7px;border-left:1px solid #9fb1ad55}
+.snapshot-item:first-child{border-left:0;padding-left:0}
+.snapshot-item:last-child{padding-right:0}
+.snapshot-item strong{display:block;font-size:11px;letter-spacing:.11em;color:#17343a}
+.snapshot-item p{margin:7px 0 0;font-size:13px;line-height:1.6;color:#455a56}
+.snapshot-boundary{margin:13px 0 0;padding-top:12px;border-top:1px solid #9fb1ad40;font-size:12px;line-height:1.65;color:#566964}
+@media(max-width:700px){.snapshot-head{align-items:flex-start;flex-direction:column;gap:7px}.snapshot-grid{grid-template-columns:1fr}.snapshot-item,.snapshot-item:first-child,.snapshot-item:last-child{padding:12px 0;border-left:0;border-top:1px solid #9fb1ad40}.snapshot-item:first-child{border-top:0}.snapshot-boundary{margin-top:8px}}
+
