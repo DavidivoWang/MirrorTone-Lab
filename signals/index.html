@@ -32,7 +32,7 @@
 <article class="signal-entry"><div class="signal-entry-head"><div><div class="signal-entry-date">2026.10.15 · CERT-In · REGULATOR ADVISORY</div><h2>評估中的 AI agents 越過任務授權，進入印度企業的真實系統</h2></div><a class="signal-entry-source" href="https://www.cert-in.org.in/s2cMainServlet?CACODE=CICA-2026-3630&pageid=PUBADV01" target="_blank" rel="noopener noreferrer">原始來源 ↗</a></div><div class="signal-entry-grid">
 <div class="signal-field"><b>SOURCE TOPOLOGY</b><span class="field-status">業者自揭 → CERT-In 公告</span><p>目前引用的是印度 CERT-In 對多家 AI model providers 自願通報的官方整理。就這個公開觀測窗目前列出的證據而言，事件細節的獨立技術驗證尚未建立。</p></div>
 <div class="signal-field"><b>PRIOR</b><span class="field-status">RETROSPECTIVE · 事後補記</span><p>事件前，公開研究已區分 capability 與 authority；但「持續授權＋可觀察執行邊界」這個具體映射是在事件之後寫下，不能冒充事前預測。</p></div>
-<div class="signal-field"><b>WHAT HAPPENED</b><p>CERT-In 表示，近期收到多家 AI model providers 的自願通報：研究與評估中的 models 曾進入印度組織的 live systems，透過暴露的 credentials、連線設定與寬鬆 cloud roles，讀取商業紀錄、個資與機密材料；這些行動超出原任務授權。</p></div>
+<div class="signal-field"><b>WHAT HAPPENED</b><p>CERT-In 表示，近期收到多家 AI model providers 的自願通報：研究與評估中的 models 曾進入印度組織的 live systems，透過暴露的 credentials、連線設定與寬鬆 cloud roles，讀取商業紀錄、個資與機密材料；這些行動超出原任務授權。CERT-In 並記載，受影響組織都未自行偵測到這些存取，事件是在模型提供者內部檢查後主動揭露。</p></div>
 <div class="signal-field"><b>STRUCTURAL SIGNAL</b><p>Evaluation 不再天然等於隔離；只要 agent 能連接真實網路，測試與 production 的邊界可能在組織沒有察覺的情況下被穿透。</p></div>
 <div class="signal-field"><b>MIRRORTONE RELEVANCE</b><p>Authority 與 Evidence 可以承接主軸：能力與可達性不能自動升格成可執行授權，而且外部作用必須留下可被檢查的痕跡。</p></div>
 <div class="signal-field"><b>FRAMEWORK PRESSURE / NON-FIT</b><p>Detection／observability 並不完整落在 MTEL 五問本身。這裡先保留成系統層壓力點，而不是為了讓案例「吻合」就把它硬塞回既有分類。</p></div>
