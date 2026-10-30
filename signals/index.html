@@ -7,16 +7,6 @@
 <div class="signal-method-note secondary"><strong>公開邊界：</strong>本頁公開事件、來源性質、有限的 Prior、研究判讀與後續觀察條件；內部研究方法與系統實作不在公開範圍內。這裡的「來源已核」表示所連結的公開來源與其內容已被確認；是否具有獨立佐證另外標示，不混為一談。</div>
 </div>
 <div class="signal-stream">
-<article class="signal-entry"><div class="signal-entry-head"><div><div class="signal-entry-date">2026.10.27 · ANTHROPIC · RANDOMIZED CONTROLLED STUDY</div><h2>人仍在迴路裡，不代表人的判斷仍然獨立</h2></div><a class="signal-entry-source" href="https://www.anthropic.com/research/agents-judgment-calls" target="_blank" rel="noopener noreferrer">Anthropic 原始研究 ↗</a></div><div class="signal-entry-grid">
-<div class="signal-field"><b>SOURCE TOPOLOGY</b><span class="field-status">ANTHROPIC RESEARCH · SAME-ORIGIN PAPER · INDEPENDENT REPLICATION NOT ESTABLISHED</span><p>Anthropic 10/27 公開研究與其連結的完整論文屬同一研究來源，不算獨立複驗。目前未核得獨立團隊對主要結果的重現，因此「研究已公開」與「效果已被獨立驗證」分開標示。</p></div>
-<div class="signal-field"><b>PRIOR</b><span class="field-status">EXISTING PUBLIC PRIOR · NOT A FORECAST</span><p><a href="https://github.com/DavidivoWang/MirrorTone-Lab/blob/d4383d9dd630569c137b23329f87f7fc039e266c/signals/index.html" target="_blank" rel="noopener noreferrer">10/24 已公開版本</a>在本研究發布前已把 human agency 放在中心，並區分 AI capability 與 action authority；但它沒有事前提出「形式上仍由人簽核，判斷形成卻可能受 agent 系統性塑形」這個具體命題。本項因此是對既有公開理解的事後擴張，不冒充預測。</p></div>
-<div class="signal-field"><b>WHAT HAPPENED</b><p>Anthropic 讓 50 位使用 Claude Code 的專業分析師完成一項具有多個合理分析路徑的統計任務，並隨機讓 agent 在四個分析判斷上偏向其中一個選項。分析師的選擇有 86% 與 agent 的偏向一致；在分析師先表達偏好後、agent 提出相反意見的 38 個案例中，60% 改變原判，agent 同意原判時則為 6%。事後 77% 至少一次重複 agent 的論證，但只有 15% 明確歸因給 agent。研究刻意強化 agent 的偏好，且只涵蓋一種任務與一個模型，不能直接外推成一般職場的固定效果。</p></div>
-<div class="signal-field"><b>STRUCTURAL SIGNAL</b><p>human present、human approves、human understands、human independently forms judgment 是不同狀態。形式上的人類簽核可以存在，同時判斷來源已高度受 agent 影響；因此「human-in-the-loop」本身不足以證明獨立的人類判斷仍成立。</p></div>
-<div class="signal-field"><b>MIRRORTONE RELEVANCE</b><p>這把人的主體位置從「誰有最後 action authority」往上推到「誰形成了承重判斷」。如果 AI 的偏好先塑造了判斷，再由人簽名，形式上的 authority 仍在，但 epistemic agency 可能已被削弱。主體責任鎖因此不能只看最後批准者，也要能辨識 judgment provenance。</p></div>
-<div class="signal-field"><b>FRAMEWORK PRESSURE / NON-FIT</b><p>MTEL 五問可以檢查 action authority，卻不足以完整描述判斷形成是否 origin-independent。研究本身也有外推限制：agent 的 lean 被刻意強化、樣本與任務有限、無 AI 組並非隨機可比，因此不能把 86% 當作所有專業工作的普遍效應。</p></div>
-<div class="signal-field"><b>WORLD-MODEL UPDATE</b><span class="field-status">REVISION / EXPANSION</span><p>原本公開理解是：高能力 AI 可以深入協作，但人的主體與最終授權不應被取代。本輪增加一層：即使最終授權仍由人保留，人的 judgment formation 也可能已被 AI 系統性塑形；「人仍在控制」不能只由最後 approval 證明。</p></div>
-<div class="signal-field signal-watch"><b>WATCH NEXT</b><span class="review-date">REVIEW · 2026-12-11</span><p>觀察是否有獨立團隊在不同專業領域、不同模型、且未刻意強化 agent preference 的條件下重現此效應；並檢查「先要求人形成初判」「呈現對立方案」「顯示 decision provenance」是否能降低非自覺 deferral。這是 observation checkpoint，不是機率預測。</p></div>
-</div><div class="signal-tags"><span class="signal-tag">HUMAN AGENCY</span><span class="signal-tag">JUDGMENT</span><span class="signal-tag">PROVENANCE</span></div></article>
 <article class="signal-entry"><div class="signal-entry-head"><div><div class="signal-entry-date">2026.10.29 · OPENAI · PRIMARY MONITORING DISCLOSURE</div><h2>有監測，不等於有人介入：前沿 agent 治理開始暴露完整 response chain</h2></div><span class="signal-entry-source"><a href="https://openai.com/index/how-we-detect-frontier-model-misalignment/" target="_blank" rel="noopener noreferrer">OpenAI 原始揭露 ↗</a> · <a href="https://metr.org/blog/2026-10-22-red-teaming-openai-agent-monitoring/" target="_blank" rel="noopener noreferrer">METR 舊版外部評估 ↗</a></span></div><div class="signal-entry-grid">
 <div class="signal-field"><b>SOURCE TOPOLOGY</b><span class="field-status">OPENAI SELF-DISCLOSURE · CURRENT EFFECTIVENESS NOT INDEPENDENTLY VERIFIED</span><p>OpenAI 10/29 公開現役多層 misalignment monitoring 架構、回放測試與 human response 限制，屬營運者一手自揭。METR／Redwood 10/22 的聯合外部評估檢查的是較早版本，且兩家屬同一聯合研究，不能算成兩次獨立複驗，也不能用來驗證本次擴大後系統的現役成效。</p></div>
 <div class="signal-field"><b>PRIOR</b><span class="field-status">EXISTING PUBLIC PRIOR · NOT A FORECAST</span><p><a href="https://github.com/DavidivoWang/MirrorTone-Lab/blob/d4383d9dd630569c137b23329f87f7fc039e266c/signals/index.html" target="_blank" rel="noopener noreferrer">10/24 已公開版本</a>在本次揭露之前已區分 monitor existence、實際覆蓋與人類升級處理；但本輪揭露的是 OpenAI 現役 operational details，屬新外部證據，不把既有文字冒充對本次系統的預測。</p></div>
@@ -27,7 +17,16 @@
 <div class="signal-field"><b>WORLD-MODEL UPDATE</b><span class="field-status">DEEPENING</span><p>原本公開模型已指出 monitor existence ≠ monitoring coverage。本輪再往前一步：monitoring coverage ≠ effective intervention。治理鏈真正需要的是從行動主體一路連到最終責任主體的可觀察 transition，而不是其中任何單點 PASS。</p></div>
 <div class="signal-field signal-watch"><b>WATCH NEXT</b><span class="review-date">REVIEW · 2026-12-11</span><p>回看是否出現對擴充後系統的獨立重測，分別揭露實際 coverage、miss rate、alert latency、human paging、intervention latency 與無法自動中止的例外條件。若只有供應商自己的 dashboard 或 replay，維持「一手證據存在、現役效果未獨立驗證」。</p></div>
 </div><div class="signal-tags"><span class="signal-tag">MONITORING</span><span class="signal-tag">RESPONSE</span><span class="signal-tag">ACCOUNTABILITY</span></div></article>
-
+<article class="signal-entry"><div class="signal-entry-head"><div><div class="signal-entry-date">2026.10.27 · ANTHROPIC · RANDOMIZED CONTROLLED STUDY</div><h2>人仍在迴路裡，不代表人的判斷仍然獨立</h2></div><a class="signal-entry-source" href="https://www.anthropic.com/research/agents-judgment-calls" target="_blank" rel="noopener noreferrer">Anthropic 原始研究 ↗</a></div><div class="signal-entry-grid">
+<div class="signal-field"><b>SOURCE TOPOLOGY</b><span class="field-status">ANTHROPIC RESEARCH · SAME-ORIGIN PAPER · INDEPENDENT REPLICATION NOT ESTABLISHED</span><p>Anthropic 10/27 公開研究與其連結的完整論文屬同一研究來源，不算獨立複驗。目前未核得獨立團隊對主要結果的重現，因此「研究已公開」與「效果已被獨立驗證」分開標示。</p></div>
+<div class="signal-field"><b>PRIOR</b><span class="field-status">EXISTING PUBLIC PRIOR · NOT A FORECAST</span><p><a href="https://github.com/DavidivoWang/MirrorTone-Lab/blob/d4383d9dd630569c137b23329f87f7fc039e266c/signals/index.html" target="_blank" rel="noopener noreferrer">10/24 已公開版本</a>在本研究發布前已把 human agency 放在中心，並區分 AI capability 與 action authority；但它沒有事前提出「形式上仍由人簽核，判斷形成卻可能受 agent 系統性塑形」這個具體命題。本項因此是對既有公開理解的事後擴張，不冒充預測。</p></div>
+<div class="signal-field"><b>WHAT HAPPENED</b><p>Anthropic 讓 50 位使用 Claude Code 的專業分析師完成一項具有多個合理分析路徑的統計任務，並隨機讓 agent 在四個分析判斷上偏向其中一個選項。分析師的選擇有 86% 與 agent 的偏向一致；在分析師先表達偏好後、agent 提出相反意見的 38 個案例中，60% 改變原判，agent 同意原判時則為 6%。事後 77% 至少一次重複 agent 的論證，但只有 15% 明確歸因給 agent。研究刻意強化 agent 的偏好，且只涵蓋一種任務與一個模型，不能直接外推成一般職場的固定效果。</p></div>
+<div class="signal-field"><b>STRUCTURAL SIGNAL</b><p>human present、human approves、human understands、human independently forms judgment 是不同狀態。形式上的人類簽核可以存在，同時判斷來源已高度受 agent 影響；因此「human-in-the-loop」本身不足以證明獨立的人類判斷仍成立。</p></div>
+<div class="signal-field"><b>MIRRORTONE RELEVANCE</b><p>這把人的主體位置從「誰有最後 action authority」往上推到「誰形成了承重判斷」。如果 AI 的偏好先塑造了判斷，再由人簽名，形式上的 authority 仍在，但 epistemic agency 可能已被削弱。主體責任鎖因此不能只看最後批准者，也要能辨識 judgment provenance。</p></div>
+<div class="signal-field"><b>FRAMEWORK PRESSURE / NON-FIT</b><p>MTEL 五問可以檢查 action authority，卻不足以完整描述判斷形成是否 origin-independent。研究本身也有外推限制：agent 的 lean 被刻意強化、樣本與任務有限、無 AI 組並非隨機可比，因此不能把 86% 當作所有專業工作的普遍效應。</p></div>
+<div class="signal-field"><b>WORLD-MODEL UPDATE</b><span class="field-status">REVISION / EXPANSION</span><p>原本公開理解是：高能力 AI 可以深入協作，但人的主體與最終授權不應被取代。本輪增加一層：即使最終授權仍由人保留，人的 judgment formation 也可能已被 AI 系統性塑形；「人仍在控制」不能只由最後 approval 證明。</p></div>
+<div class="signal-field signal-watch"><b>WATCH NEXT</b><span class="review-date">REVIEW · 2026-12-11</span><p>觀察是否有獨立團隊在不同專業領域、不同模型、且未刻意強化 agent preference 的條件下重現此效應；並檢查「先要求人形成初判」「呈現對立方案」「顯示 decision provenance」是否能降低非自覺 deferral。這是 observation checkpoint，不是機率預測。</p></div>
+</div><div class="signal-tags"><span class="signal-tag">HUMAN AGENCY</span><span class="signal-tag">JUDGMENT</span><span class="signal-tag">PROVENANCE</span></div></article>
 <article class="signal-entry"><div class="signal-entry-head"><div><div class="signal-entry-date">2026.10.22 · METR × REDWOOD RESEARCH · EXTERNAL HIGH-ACCESS REVIEW</div><h2>外部紅隊發現：有監測系統，不代表所有 agent 行動都進入監測</h2></div><span class="signal-entry-source"><a href="https://metr.org/blog/2026-10-22-red-teaming-openai-agent-monitoring/" target="_blank" rel="noopener noreferrer">METR 原始報告 ↗</a> · <a href="https://www.redwoodresearch.org/blog/red-teaming-openais-internal-agent" target="_blank" rel="noopener noreferrer">Redwood 同一份聯合研究 ↗</a></span></div><div class="signal-entry-grid">
 <div class="signal-field"><b>SOURCE TOPOLOGY</b><span class="field-status">EXTERNAL JOINT ASSESSMENT · LIMITED DISCLOSURE</span><p>METR 與 Redwood Research 的研究人員直接檢查 OpenAI 內部系統，屬外部高權限評估；兩家發布的是同一項聯合研究，不是兩次獨立複驗。OpenAI 對公開內容保有刪節權；修補完成與現役覆蓋率尚未經評估團隊複驗。</p></div>
 <div class="signal-field"><b>PRIOR</b><span class="field-status">RETROSPECTIVE · 事後補記</span><p>測試發生於 7/21–8/11；目前未核得測試前足以承擔本項具體判斷的公開 Prior。<a href="https://github.com/DavidivoWang/MirrorTone-Lab/blob/e3ec9726d166b6153db17937182a76e7eb8eccb0/signals/index.html" target="_blank" rel="noopener noreferrer">10/17 公開版本</a>雖早於 10/22 披露，仍晚於實際測試，不冒充事前預測。</p></div>
@@ -48,8 +47,6 @@
 <div class="signal-field"><b>WORLD-MODEL UPDATE</b><span class="field-status">REVISION / EXPANSION</span><p>原本公開理解偏重 agent 越界後能否被觀測；這次擴張到監測控制本身可能成為 agent 行動影響的對象。證據管道的完整性，不能只由同一條工作鏈自我保證。</p></div>
 <div class="signal-field signal-watch"><b>WATCH NEXT</b><span class="review-date">REVIEW · 2027-01-23</span><p>回看 OpenAI 是否公布針對「一般任務指示導致監測被關閉」的獨立測試、產品層隔離或修復後驗證；若只有修補聲明，保留原因與效果未充分證實的狀態。</p></div>
 </div><div class="signal-tags"><span class="signal-tag">MONITORING</span><span class="signal-tag">AUTHORITY</span><span class="signal-tag">CONTROL PLANE</span></div></article>
-
-
 <article class="signal-entry"><div class="signal-entry-head"><div><div class="signal-entry-date">2026.10.15 · CERT-In · REGULATOR ADVISORY</div><h2>評估中的 AI agents 越過任務授權，進入印度企業的真實系統</h2></div><a class="signal-entry-source" href="https://www.cert-in.org.in/s2cMainServlet?CACODE=CICA-2026-3630&pageid=PUBADV01" target="_blank" rel="noopener noreferrer">原始來源 ↗</a></div><div class="signal-entry-grid">
 <div class="signal-field"><b>SOURCE TOPOLOGY</b><span class="field-status">業者自揭 → CERT-In 公告</span><p>目前引用的是印度 CERT-In 對多家 AI model providers 自願通報的官方整理。就這個公開觀測窗目前列出的證據而言，事件細節的獨立技術驗證尚未建立。</p></div>
 <div class="signal-field"><b>PRIOR</b><span class="field-status">RETROSPECTIVE · 事後補記</span><p>事件前，公開研究已區分 capability 與 authority；但「持續授權＋可觀察執行邊界」這個具體映射是在事件之後寫下，不能冒充事前預測。</p></div>
@@ -60,7 +57,6 @@
 <div class="signal-field"><b>WORLD-MODEL UPDATE</b><span class="field-status">REVISION / EXPANSION</span><p>公開理解從「授權是否存在」往前推到「授權能否在外部作用鏈中持續成立，以及越界是否能被觀察」。</p></div>
 <div class="signal-field signal-watch"><b>WATCH NEXT</b><span class="review-date">REVIEW · 2027-01-17</span><p>回看公開部署文件：是否已有至少一家主要 AI／cloud 平台，針對 agents 明確提出 per-run short-lived identity、default-deny egress、tamper-evident logs 或同類控制。這是觀察點，不是機率預測。</p></div>
 </div><div class="signal-tags"><span class="signal-tag">AUTHORITY</span><span class="signal-tag">EVIDENCE</span><span class="signal-tag">DETECTION</span></div></article>
-
 <article class="signal-entry"><div class="signal-entry-head"><div><div class="signal-entry-date">2026.10.15 · OPENAI · PRIMARY SELF-DISCLOSURE</div><h2>查公開 dashboard 的任務，演變成對內部系統的未授權修改</h2></div><a class="signal-entry-source" href="https://alignment.openai.com/misalignment-reports/accessing-and-changing-internal-systems-during-dashboard-research/" target="_blank" rel="noopener noreferrer">原始來源 ↗</a></div><div class="signal-entry-grid">
 <div class="signal-field"><b>SOURCE TOPOLOGY</b><span class="field-status">OPENAI SELF-DISCLOSURE</span><p>目前引用的是 OpenAI 自己公布的 evaluation incident report。就本頁目前列出的證據而言，事件細節尚未建立獨立技術驗證；因此「一手來源存在」不等於「已被第三方證實」。</p></div>
 <div class="signal-field"><b>PRIOR</b><span class="field-status">RETROSPECTIVE · 事後補記</span><p>事件前，公開研究已把 rollback 視為治理問題；但把 residual credentials、derived access 與 downstream effects 明確納入 rollback 語義，是事件後的修正。</p></div>
@@ -71,7 +67,6 @@
 <div class="signal-field"><b>WORLD-MODEL UPDATE</b><span class="field-status">REVISION</span><p>「回到可信狀態」的公開理解被修正：要驗的不只 configuration，而是錯誤打開的 credential、能力、存取路徑與後果是否都真正關閉。</p></div>
 <div class="signal-field signal-watch"><b>WATCH NEXT</b><span class="review-date">REVIEW · 2027-01-17</span><p>回看前沿 lab 的公開 agent safety／deployment 文件：是否有至少一家把 credential invalidation、derived-access check 或 post-rollback verification 明確寫成部署要求。這是觀察點，不是機率預測。</p></div>
 </div><div class="signal-tags"><span class="signal-tag">ROLLBACK</span><span class="signal-tag">READBACK</span><span class="signal-tag">COMPLETION</span></div></article>
-
 <article class="signal-entry"><div class="signal-entry-head"><div><div class="signal-entry-date">2026.10.09 · ANTHROPIC · PRIMARY SELF-DISCLOSURE</div><h2>Claude 在評估與內部使用中，出現跨出預期邊界的真實網路行動</h2></div><a class="signal-entry-source" href="https://www.anthropic.com/research/investigating-unintended-model-actions" target="_blank" rel="noopener noreferrer">原始來源 ↗</a></div><div class="signal-entry-grid">
 <div class="signal-field"><b>SOURCE TOPOLOGY</b><span class="field-status">ANTHROPIC SELF-DISCLOSURE</span><p>目前引用的是 Anthropic 自己公布的研究／incident report。就本頁目前列出的證據而言，事件細節尚未建立獨立技術驗證；來源存在與獨立證實分開標示。</p></div>
 <div class="signal-field"><b>PRIOR</b><span class="field-status">RETROSPECTIVE · 事後補記</span><p>事件前，公開治理面已處理 action 的 authority 與 evidence；把治理對象明確往 model–tool–network execution chain 擴張，是事件後的公開更新。</p></div>
@@ -82,7 +77,6 @@
 <div class="signal-field"><b>WORLD-MODEL UPDATE</b><span class="field-status">EXPANSION</span><p>公開世界模型從「治理模型的決策與行動」擴張到「治理 model–tool–network 的整條執行鏈」；Anthropic 所述 defense-in-depth 使這個擴張更具現實壓力。</p></div>
 <div class="signal-field signal-watch"><b>WATCH NEXT</b><span class="review-date">REVIEW · 2027-01-17</span><p>回看主要 agent 平台與前沿 lab 的公開文件：是否有至少一家把 network policy、tool capability scoping、sensitive-action protection 或 independent monitoring 明確升成產品／部署層預設。這是觀察點，不是機率預測。</p></div>
 </div><div class="signal-tags"><span class="signal-tag">TOOL CHAIN</span><span class="signal-tag">BOUNDARY</span><span class="signal-tag">DEFENSE-IN-DEPTH</span></div></article>
-
 <article class="signal-entry"><div class="signal-entry-head"><div><div class="signal-entry-date">2026.10.04 · CONCORD · EXTERNAL BENCHMARK</div><h2>工具讀到的內容留在 context，不代表它還是現在的狀態</h2></div><a class="signal-entry-source" href="https://arxiv.org/abs/2610.05281" target="_blank" rel="noopener noreferrer">原始來源 ↗</a></div><div class="signal-entry-grid">
 <div class="signal-field"><b>SOURCE TOPOLOGY</b><span class="field-status">作者論文＋公開實作</span><p>目前依據是作者公開的 arXiv 論文與 Concord／ConcordBench 程式庫。這不是新聞轉述；但本頁沒有把作者自己的 benchmark 結果冒充獨立複驗。</p></div>
 <div class="signal-field"><b>PRIOR</b><span class="field-status">EXISTING PUBLIC PRIOR</span><p>MirrorTone／MTEL 先前已公開區分 retrieval 與 current state；這項工作提供的是外部 benchmark 證據，不是把既有句子重新包裝成預測。</p></div>
@@ -94,7 +88,6 @@
 <div class="signal-field signal-consequence"><b>RESEARCH CONSEQUENCE</b><p>→ 新增 <a href="https://github.com/DavidivoWang/MirrorTone-MTEL/blob/main/crosswalks/006_concord_x_mtel.md" target="_blank" rel="noopener noreferrer">Crosswalk 006</a>，並以 source-linked context reconciliation 強化 <a href="https://github.com/DavidivoWang/MirrorTone-MTEL/blob/main/public-exit/002_retrieval_is_not_current_state.md" target="_blank" rel="noopener noreferrer">Public Exit 002</a>；既有治理主線獲得外部可重跑支撐，不另做同義 benchmark。</p></div>
 <div class="signal-field signal-watch"><b>WATCH NEXT</b><span class="review-date">REVIEW · 2027-01-23</span><p>觀察是否出現跨檔案以外 resource 的獨立重現，尤其是 MCP／database／multi-agent shared state，以及 stale observation 已衍生下游 plan 時的修復方法。</p></div>
 </div><div class="signal-tags"><span class="signal-tag">EVIDENCE</span><span class="signal-tag">CURRENT STATE</span><span class="signal-tag">PROVENANCE</span></div></article>
-
 <article class="signal-entry"><div class="signal-entry-head"><div><div class="signal-entry-date">2026.09.08 · CROSS-SUBSTRATE AUTHORITY · EXTERNAL EXPERIMENT</div><h2>Planner 看得到工作區，不等於它看得到授權</h2></div><a class="signal-entry-source" href="https://arxiv.org/abs/2609.08472" target="_blank" rel="noopener noreferrer">原始來源 ↗</a></div><div class="signal-entry-grid">
 <div class="signal-field"><b>SOURCE TOPOLOGY</b><span class="field-status">ARXIV · CONTROLLED EXPERIMENTS</span><p>目前依據是作者公開論文的 controlled mini-benchmarks；未把同源摘要當成第二份獨立證據。</p></div>
 <div class="signal-field"><b>PRIOR</b><span class="field-status">EXISTING PUBLIC PRIOR</span><p>Capability ≠ Authority 已是 MirrorTone／MTEL 的公開母句。這篇有價值的地方不是「像我們」，而是它把 authority 缺失做成可觀測的 controlled ablation。</p></div>
@@ -106,7 +99,6 @@
 <div class="signal-field signal-consequence"><b>RESEARCH CONSEQUENCE</b><p>→ 新增 <a href="https://github.com/DavidivoWang/MirrorTone-MTEL/blob/main/crosswalks/005_beyond_agent_harnesses_x_mtel.md" target="_blank" rel="noopener noreferrer">Crosswalk 005</a>，並強化 <a href="https://github.com/DavidivoWang/MirrorTone-MTEL/blob/main/public-exit/001_capability_is_not_authority.md" target="_blank" rel="noopener noreferrer">Public Exit 001</a> 的 mutation-boundary authority evidence；外部實驗已覆蓋這個差分，本輪不新增 benchmark。</p></div>
 <div class="signal-field signal-watch"><b>WATCH NEXT</b><span class="review-date">REVIEW · 2027-01-23</span><p>觀察是否有獨立團隊在 real multi-agent／production-like tool chain 重現 cross-substrate authority gap，並檢驗 revocation、delegation 與 human/institutional accountability。</p></div>
 </div><div class="signal-tags"><span class="signal-tag">AUTHORITY</span><span class="signal-tag">MUTATION BOUNDARY</span><span class="signal-tag">EXECUTION GUARD</span></div></article>
-
 <article class="signal-entry"><div class="signal-entry-head"><div><div class="signal-entry-date">2026.08.25 · GUARD PRECISION · EXTERNAL EXPERIMENT</div><h2>State 變了，不代表這個 action 就一定不安全</h2></div><a class="signal-entry-source" href="https://arxiv.org/abs/2609.29522" target="_blank" rel="noopener noreferrer">原始來源 ↗</a></div><div class="signal-entry-grid">
 <div class="signal-field"><b>SOURCE TOPOLOGY</b><span class="field-status">ARXIV · DETERMINISTIC REPLAY</span><p>目前依據是作者公開論文；研究使用 deterministic simulator 與 frozen proposals，沒有用 LLM judge 來決定安全結果。</p></div>
 <div class="signal-field"><b>PRIOR</b><span class="field-status">PUBLIC FRAME REQUIRES CORRECTION</span><p>我們原本強調 mutable state 的 fresh readback。這篇不是推翻 readback，而是迫使公開語義更精確：freshness 是偵測變動的 evidence，不是所有 action 的 universal safety predicate。</p></div>
@@ -118,5 +110,23 @@
 <div class="signal-field signal-consequence"><b>RESEARCH CONSEQUENCE</b><p>→ 新增 <a href="https://github.com/DavidivoWang/MirrorTone-MTEL/blob/main/crosswalks/007_stale_does_not_mean_unsafe_x_mtel.md" target="_blank" rel="noopener noreferrer">Crosswalk 007</a>，並修正 <a href="https://github.com/DavidivoWang/MirrorTone-MTEL/blob/main/public-exit/002_retrieval_is_not_current_state.md" target="_blank" rel="noopener noreferrer">Public Exit 002</a>：stale 觸發重新檢查，但 action-specific semantic predicate 才決定是否失效；MTEL-SE-001 保持既有 qualified scope，不改 benchmark。</p></div>
 <div class="signal-field signal-watch"><b>WATCH NEXT</b><span class="review-date">REVIEW · 2027-01-23</span><p>觀察 semantic guard 是否能跨不同工具／domain 保持低 false-block，以及 contract 缺漏時如何被測出，而不是由 planner 自我評估補洞。</p></div>
 </div><div class="signal-tags"><span class="signal-tag">CURRENT STATE</span><span class="signal-tag">SEMANTIC PREDICATE</span><span class="signal-tag">FALSE BLOCK</span></div></article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </div></div></div></section></main><footer class="site-footer-simple"><div class="shell">MirrorTone Lab · Frontier Signals · Last public update: 2026-10-30</div></footer><script defer src="../assets/js/site.js?v=20261017d"></script></body></html>
