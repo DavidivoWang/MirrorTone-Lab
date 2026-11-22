@@ -1,0 +1,85 @@
+<!doctype html><html lang="zh-Hant"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0a1a23"><meta name="color-scheme" content="light">
+<title>當 AI 證明黎曼猜想｜MirrorTone Lab</title>
+<meta name="description" content="MirrorTone Lab 對 Alpöge–Claude 黎曼猜想 Lean 證明的 source-level 研究紀錄：形式驗證、√X multiplicity、theta lifts、VWin 與真正可能的新數學核心。">
+<link rel="stylesheet" href="../../assets/css/site-1.css?v=20261017e"><link rel="stylesheet" href="../../assets/css/site-2.css?v=20261017e"><link rel="stylesheet" href="../../assets/css/site-3.css?v=20261024a">
+<link rel="canonical" href="https://davidivowang.github.io/MirrorTone-Lab/research/riemann-hypothesis-ai-lean/">
+<link rel="alternate" hreflang="zh-Hant" href="https://davidivowang.github.io/MirrorTone-Lab/research/riemann-hypothesis-ai-lean/">
+<link rel="alternate" hreflang="en" href="https://davidivowang.github.io/MirrorTone-Lab/research/riemann-hypothesis-ai-lean/en/">
+<meta name="date" content="2026-11-22">
+<meta property="og:site_name" content="MirrorTone Lab"><meta property="og:type" content="article"><meta property="og:title" content="當 AI 證明黎曼猜想"><meta property="og:description" content="沿著 1,700 萬行 Lean，從形式驗證一路追到 iterated theta-lift multiplicity 與 global Galois-cohomological control。"><meta property="og:url" content="https://davidivowang.github.io/MirrorTone-Lab/research/riemann-hypothesis-ai-lean/"><meta property="og:image" content="https://davidivowang.github.io/MirrorTone-Lab/assets/og/mirrortone-lab.png"><meta name="twitter:card" content="summary_large_image">
+</head><body>
+<header class="site-header" id="siteHeader"><div class="header-container"><a class="brand" href="../../"><span class="brand-name"><strong>MirrorTone</strong><small>LABORATORY</small></span></a><nav class="nav" id="nav" aria-label="網站導覽"><a href="../../">首頁</a><a href="../">公開研究</a><a href="../../signals/">前沿訊號</a><a href="../../#library">Public Library</a></nav><div class="header-actions"><a class="lang-button" href="en/">English</a><button class="menu-button" id="menuToggle" aria-controls="nav" aria-expanded="false" aria-label="開啟選單" type="button"><span></span><span></span></button></div></div></header>
+<main><section class="subpage-hero"><div class="shell"><div class="eyebrow">PUBLIC RESEARCH ESSAY · 2026.11.22</div><div class="signal-entry-date">SOURCE-LEVEL AUDIT · RIEMANN HYPOTHESIS · LEAN</div><h1>當 AI 證明黎曼猜想</h1><p>我們沿著約 1,700 萬行 Lean，從「這消息是真的嗎？」一路追到：真正承重的數學核心可能在哪裡。</p><div class="subnav"><a href="../">返回 Public Research</a><a href="https://leanprover-community.github.io/blog/posts/riemann-hypothesis/" target="_blank" rel="noopener noreferrer">Lean 社群驗證聲明 ↗</a></div></div></section>
+<section class="content-page"><div class="shell"><div class="prose">
+<div class="boundary-box"><strong>截至 2026-11-22 的狀態：</strong>這份 Lean formal proof 的 statement、完整 build、proof target 與 kernel validity 已取得獨立驗證；但把 1,700 萬行 formal development 完整轉成人類可讀數學、以及判定每一個 theorem 的歷史 novelty，仍在進行中。本文因此把「形式正確性」「數學機制」「原創性／priority」分開。</div>
+
+<h2>一、真正的第一個問題不是「AI 有沒有解掉 RH」</h2>
+<p>2026 年 11 月 20 日，數學家 Levent Alpöge 宣布，他與 Claude 合作找到黎曼猜想的證明，方法並延伸到 Dirichlet L-functions 的廣義黎曼猜想；同時釋出約 1,700 萬行的 Lean formalization。一天後，Lean 與 Mathlib 社群發布聯合聲明，表示對證明正確性有充分信心，並明確認證四件事：Mathlib 中的 RH statement 正確、整個 library 可成功編譯、所證 theorem 確實就是該 statement、以及 exported proof 能通過 Lean kernel 與多個獨立 checker。</p>
+<p>這讓「是不是假的」很快收斂，但它留下更難的問題：<strong>一個 1,700 萬行的 machine-checked proof，到底在數學上做了什麼？</strong>如果 AI 不只是幫忙打字，而參與了 discovery 與 proof architecture，我們又該怎麼理解它真正的數學貢獻？</p>
+
+<h2>二、先不要讀 1,700 萬行：找到 theorem spine</h2>
+<p>我們先固定到公開 mirror 的 pinned source，再從 final theorem 反向追。最短主鏈非常清楚：</p>
+<p><code>riemannHypothesis ← rhOfAll ← allChi ← UpperTheory.EveryCharacter</code></p>
+<p><code>EveryCharacter</code> 的內容比 RH 本身更強：對每個 Dirichlet character χ，只要 <strong>Re(s) &gt; 1/2</strong>，排除 trivial pole，就要求 <code>L(χ,s) ≠ 0</code>。RH 只是最後取 trivial character，再用 functional equation / symmetry 收束。</p>
+<p>所以真正的問題不是「怎麼直接把 ζ(s) 的 zeros 推上 critical line」，而是：<strong>證明怎麼建立一個夠強的 prime／character estimate，使任何 Re(s)&gt;1/2 的 Dirichlet-L zero 都不可能存在？</strong></p>
+
+<h2>三、幾何上的 divisibility 為什麼會變成質數分布？</h2>
+<p>這是研究過程中真正第一次「看見」整個機器的地方。算術幾何物件可以在每個 prime p 上量到 p-adic valuation：它被 p 整除多少次。把這些局部 valuation 乘上 <code>log p</code> 再加總，就得到一個全局 additive quantity。</p>
+<p>而 von Mangoldt function 恰好把 prime powers 編碼成同樣的權重：</p>
+<p><strong>Λ(p<sup>k</sup>) = log p.</strong></p>
+<p>因此，local divisibility 不是偶然「像」prime counting；它天然能被翻譯成 prime-power weighted sums。再經 Dirichlet characters／有限群 Fourier decomposition，不同 residue 或 Galois orbit 的資訊就能被投影到各個 L-function component。</p>
+<p>這一步把 proof 從「神祕的 theta geometry」接回 analytic number theory：<strong>valuation → Λ-weighted prime statistic → character component → zero detection。</strong></p>
+
+<h2>四、1/2 從哪裡來？答案不是最後那個 functional equation</h2>
+<p>Alpöge 在原始 announcement 裡給了一條極重要的線索：Stepanov 在 function-field RH 中使用 multiplicity；而在 integers 上 multiplicity 很難找到。Claude 建議把 theta lifts 串成 chain，讓每一層都像一次 multiplicity，並把 chain length 選到約 <strong>√X</strong>。</p>
+<p>我們沿 Lean 依賴鏈往下追後，確認這不是比喻。多層 theta lift 的 gain 會落到實際 valuation，再經 lattice slope／covolume inequality 轉成必須支付的 global size cost。簡化後的競爭項可理解成：</p>
+<p><strong>x / m + m + 其他可控成本。</strong></p>
+<p>若 m 是 lift chain 的長度，選 <strong>m ≍ √x</strong> 正好把 <code>x/m</code> 與 <code>m</code> 平衡到 square-root scale。也就是說，<strong>critical exponent 1/2 是 proof architecture 內生的 multiplicity–cost balance</strong>，不是證明最後才由 symmetry 補出來。</p>
+
+<h2>五、我們一度看錯核心：Gser 很漂亮，但不像最後的突破點</h2>
+<p>source-level audit 的一個重要價值，是允許我們改判。最早最吸睛的是 local theta／formal-group branch：<code>Gser</code>、<code>BetaHyp</code>、<code>BetaIsG</code>、<code>F1</code>、<code>F2</code>、<code>NormRel</code>。它們看起來像某個完全新的 kernel 機器。</p>
+<p>但逐層拆開後，<code>Gser</code> 更像滿足特定 biextension／Frobenius 條件的 canonical normal form；底下可以辨認出 height-two formal logarithm、CM isogeny distribution、good-reduction prime-to-p torsion 與 Dwork-style integrality／rigidity 的結構。</p>
+<p>這不表示 local branch 不重要，也不表示其中沒有新 theorem。更精確的結論是：<strong>我們沒有在這一支找到一個足以單獨解釋整個 RH breakthrough 的不可約新現象。</strong>它像極重要的燃燒室，但未必是整台引擎真正新穎的地方。</p>
+
+<h2>六、真正的瓶頸往全局移動：Count* → VWin</h2>
+<p>往 final chain 上游追後，焦點移到 <code>VWin</code>。在 pinned source 中，<code>VWin</code> 要求對一整族 character/window，統一控制 Galois cohomology／Selmer-type length 的 weighted sums；再上游由 <code>CountI</code>、<code>CountII</code>、<code>CountIII</code>、<code>CountV</code>、<code>CountZ</code> 與 <code>LemmaK</code> 等 quantitative statements 組裝。</p>
+<p><code>LemmaK</code> 本身要求某些 H² 群有限，並對其 cardinality growth 給出統一上界。這些控制的角色很關鍵：local theta chain 可以製造很多 divisibility，但如果 Hecke／Fourier projection、integral lattice 或 Galois cohomology 的 denominator cost 無限制增長，multiplicity 會在到達 analytic side 前被吃掉。</p>
+<p>因此我們最後把最可能承載 theorem-level 新 burden 的位置，從 local <code>Gser</code> 移到：<strong>uniform automorphic／Galois-cohomological control that preserves multiplicity through global projection and denominator losses。</strong></p>
+<p>這是一個研究判斷，不是 priority claim。要說「這一條 theorem 在文獻中第一次出現」，仍需要逐 theorem 的 literature collision audit。</p>
+
+<div class="repo-cards">
+<div class="repo-card"><h3>形式層</h3><p><strong>PASS。</strong> 社群已獨立驗證 RH statement、full build、proof target 與 kernel validity。</p></div>
+<div class="repo-card"><h3>機制層</h3><p><strong>已可辨識。</strong> iterated theta lifts 提供 multiplicity，global arithmetic control 保住它，最後形成 square-root prime/character bound。</p></div>
+<div class="repo-card"><h3>Novelty 層</h3><p><strong>仍開放。</strong> local branch 不像唯一新核；Count*/VWin 一帶更值得做 theorem-by-theorem 文獻審核。</p></div>
+</div>
+
+<h2>七、這件事對「AI 做數學」真正重要在哪裡？</h2>
+<p>Alpöge 自己的描述很關鍵：他不是說 Claude 只是 formalize 一份已經完成的人類 proof；相反地，他描述自己先把問題帶到正確的 analogue，之後 Claude 在接近終點時大幅超前，並提出把 theta-lift chain 長度選為 √X 的建議。</p>
+<p>如果這個 provenance 被後續歷史材料進一步確認，那這次事件的重要性就不只是「AI 幫忙檢查一個大 theorem」，而是：<strong>AI 參與跨領域 proof architecture 的生成，並把 formal verification 與 mathematical discovery 接在同一條工作鏈上。</strong></p>
+<p>這也回到我們一開始的疑問。數學的真理判準不會因為用了 AI 就改變；一個 proof 若成立，它不會因工具而變假。但 authorship、credit、理解責任、以及「誰真正看見了證明中的新概念」會變得比過去複雜得多。</p>
+
+<h2>八、目前最精確的結論</h2>
+<p>我們現在願意公開寫下的結論不是「所有數學細節已被人類完全理解」，也不是「我們已判定哪一條 lemma 是歷史首創」。而是：</p>
+<div class="boundary-box"><strong>這份 formal proof 已通過獨立驗證；它的核心機制已足以被重建成一個清楚的架構：</strong><br><br>
+classical height-2 / CM local arithmetic<br>
+→ theta-lift divisibility<br>
+→ repeat m times → multiplicity<br>
+→ lattice slope / covolume cost<br>
+→ Count* / LemmaK / VWin global control<br>
+→ square-root prime / character estimate with m ≍ √x<br>
+→ Dirichlet GRH<br>
+→ RH.<br><br>
+<strong>真正的新意看起來不像一條魔法 lemma，而像是一個跨 formal groups、CM、theta lifting、automorphic forms、Galois cohomology 與 analytic zero detection 的 proof architecture。</strong></div>
+
+<h2>Sources &amp; verification</h2>
+<p><a href="https://alpo.ge/remark.pdf" target="_blank" rel="noopener noreferrer">Levent Alpöge, announcement / mathematical sketch ↗</a></p>
+<p><a href="https://leanprover-community.github.io/blog/posts/riemann-hypothesis/" target="_blank" rel="noopener noreferrer">Lean &amp; Mathlib communities, joint verification statement ↗</a></p>
+<p><a href="https://www.math.uwaterloo.ca/~mrubinst/alpoge_claude_grh/" target="_blank" rel="noopener noreferrer">Michael Rubinstein, independent verification and human-readable study ↗</a></p>
+<p><a href="https://github.com/CocoSgt/riemann-hypothesis-lean/tree/7cbf7a0c32fca1badf05931879a37c3f8a2b03b4" target="_blank" rel="noopener noreferrer">Pinned public mirror used for our source-level audit ↗</a></p>
+<p><a href="https://github.com/leanprover-community/riemann-hypothesis" target="_blank" rel="noopener noreferrer">Lean community verification repository ↗</a></p>
+
+<div class="boundary-box"><strong>Non-claim：</strong>本文是 2026-11-21 至 2026-11-22 的 source-level research reconstruction。它不聲稱替代數學界的完整 human proof exposition、peer review 或歷史 priority judgement；對 novelty 的定位是目前研究判讀，會隨後續人類證明整理與文獻比對更新。</div>
+</div></div></section></main>
+<footer class="site-footer-simple"><div class="shell">MirrorTone Lab · Public Research Essay · Riemann Hypothesis · AI-assisted mathematical discovery</div></footer><script defer src="../../assets/js/site.js?v=20261017e"></script>
+</body></html>
