@@ -1,18 +1,18 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0a1a23"><meta name="color-scheme" content="light">
 <title>When AI Proves the Riemann Hypothesis · MirrorTone Lab</title>
-<meta name="description" content="A source-level study of the Alpöge–Claude Lean proof: formal verification, square-root multiplicity, iterated theta lifts, VWin, and where the mathematical novelty may actually live.">
+<meta name="description" content="A source-level study of the Alpöge–Claude Lean proof: formal verification, square-root multiplicity, iterated theta lifts, VWin, the strongest current novelty candidate, and the literature boundary that remains open.">
 <link rel="stylesheet" href="../../../assets/css/site-1.css?v=20261017e"><link rel="stylesheet" href="../../../assets/css/site-2.css?v=20261017e"><link rel="stylesheet" href="../../../assets/css/site-3.css?v=20261024a">
 <link rel="canonical" href="https://davidivowang.github.io/MirrorTone-Lab/research/riemann-hypothesis-ai-lean/en/">
 <link rel="alternate" hreflang="en" href="https://davidivowang.github.io/MirrorTone-Lab/research/riemann-hypothesis-ai-lean/en/">
 <link rel="alternate" hreflang="zh-Hant" href="https://davidivowang.github.io/MirrorTone-Lab/research/riemann-hypothesis-ai-lean/">
-<meta name="date" content="2026-11-22">
+<meta name="date" content="2026-11-22"><meta name="last-modified" content="2026-11-23"><meta property="article:published_time" content="2026-11-22"><meta property="article:modified_time" content="2026-11-23">
 <meta property="og:site_name" content="MirrorTone Lab"><meta property="og:type" content="article"><meta property="og:title" content="When AI Proves the Riemann Hypothesis"><meta property="og:description" content="Following 17 million lines of Lean from formal verification to iterated theta-lift multiplicity and global Galois-cohomological control."><meta property="og:url" content="https://davidivowang.github.io/MirrorTone-Lab/research/riemann-hypothesis-ai-lean/en/"><meta property="og:image" content="https://davidivowang.github.io/MirrorTone-Lab/assets/og/mirrortone-lab.png"><meta name="twitter:card" content="summary_large_image">
 </head><body>
 <header class="site-header" id="siteHeader"><div class="header-container"><a class="brand" href="../../../en/"><span class="brand-name"><strong>MirrorTone</strong><small>LABORATORY</small></span></a><nav class="nav" id="nav" aria-label="Site navigation"><a href="../../../en/">Home</a><a href="../../en/">Public Research</a><a href="../../../signals/en/">Frontier Signals</a><a href="../../../en/#library">Public Library</a></nav><div class="header-actions"><a class="lang-button" href="../">繁體中文</a><button class="menu-button" id="menuToggle" aria-controls="nav" aria-expanded="false" aria-label="Open menu" type="button"><span></span><span></span></button></div></div></header>
 <main><section class="subpage-hero"><div class="shell"><div class="eyebrow">PUBLIC RESEARCH ESSAY · 2026.11.22</div><div class="signal-entry-date">SOURCE-LEVEL AUDIT · RIEMANN HYPOTHESIS · LEAN</div><h1>When AI Proves the Riemann Hypothesis</h1><p>We followed roughly 17 million lines of Lean from “is this claim real?” to a more difficult question: where does the proof's load-bearing mathematics actually live?</p><div class="subnav"><a href="../../en/">Back to Public Research</a><a href="https://leanprover-community.github.io/blog/posts/riemann-hypothesis/" target="_blank" rel="noopener noreferrer">Lean community verification ↗</a></div></div></section>
 <section class="content-page"><div class="shell"><div class="prose">
-<div class="boundary-box"><strong>Status as of 22 November 2026:</strong> the Lean formal proof has passed independent checks of the RH statement, full build, proof target and kernel validity. Human-readable reconstruction of the 17-million-line development, and historical priority for its individual theorems, remain ongoing. This essay therefore separates formal correctness, mathematical mechanism and novelty.</div>
+<div class="boundary-box"><strong>Status as of 23 November 2026:</strong> the published Lean formal artifact has passed the currently public first-hand independent formal checks, including full build, statement matching, axiom audit, Lean-kernel and independent-checker validation; the Lean and Mathlib communities have publicly stated full confidence in its statement and proof. This is not the same as Clay Mathematics Institute recognition or completed historical/priority acceptance by the global mathematical community; CMI still lists RH as Unsolved. This essay therefore separates formal correctness, mathematical mechanism, novelty/priority, and institutional acceptance.</div>
 
 <h2>1. The first question was not “did AI solve RH?”</h2>
 <p>On 20 November 2026, Levent Alpöge announced a proof of the Riemann Hypothesis found in collaboration with Claude, extending to GRH for Dirichlet L-functions, together with a Lean development of roughly 17 million lines. The following day the Lean and Mathlib communities issued a joint statement certifying the correctness of the formal statement and proof: the library builds, the theorem is exactly Mathlib's Riemann Hypothesis, and the exported proof is accepted by Lean's kernel and multiple independent checkers.</p>
@@ -32,24 +32,24 @@
 
 <h2>4. Where does the exponent one half come from?</h2>
 <p>Alpöge's announcement gives the decisive clue. Stepanov's function-field argument uses multiplicity; over the integers, an analogue of multiplicity is difficult to obtain. The new strategy chains theta lifts so that each stage behaves like another unit of multiplicity. Claude's suggested chain length, according to Alpöge, was about <strong>√X</strong>.</p>
-<p>Our source audit confirms that this is not merely an analogy. Divisibility gained along repeated theta lifts reaches actual valuations and is then charged against lattice slope / covolume and other global costs. At a schematic level the competing terms behave like:</p>
+<p>Alpöge's public account explicitly presents this strategy as an arithmetic analogue of Stepanov multiplicity. Our source audit then checks a different question: whether the repeated theta-lift gains actually reach valuations and the downstream inequality chain. They do, supporting the multiplicity interpretation without conflating the author's high-level architecture with the literal theorem statements. At a schematic level the competing terms behave like:</p>
 <p><strong>x / m + m + controlled secondary costs.</strong></p>
-<p>Balancing these at <strong>m ≍ √x</strong> produces the square-root threshold. Thus the exponent 1/2 is not inserted only at the final functional-equation step; it is generated by the proof architecture's multiplicity–cost tradeoff.</p>
+<p>The author's public architecture and current human exposition place <strong>m ≍ √x</strong> at the square-root balance, and the schematic <code>x/m</code> versus <code>m</code> model reflects that tradeoff. The more precise claim is that the 1/2 threshold is <strong>consistent with the iterated-theta multiplicity square-root tradeoff</strong>, rather than appearing only at the final functional-equation step. Until the main inequality <code>(M)</code> is fully reconstructed in human mathematics, this schematic balance should not be presented as a fully closed source-level causal theorem.</p>
 
 <h2>5. Our first candidate for the “magic core” did not survive the audit</h2>
 <p>The local theta/formal-group branch initially looked like the likely breakthrough: <code>Gser</code>, <code>BetaHyp</code>, <code>BetaIsG</code>, <code>F1</code>, <code>F2</code> and <code>NormRel</code>. But when unpacked, much of this machinery aligns with recognizable structures from height-two formal groups, CM isogeny distributions, prime-to-p torsion under good reduction, and Dwork-style integrality and rigidity.</p>
-<p>This does not make the local theory unimportant, nor does it prove that every local theorem is old. The narrower conclusion is that <strong>we did not find a single irreducible local phenomenon that by itself explains the RH breakthrough.</strong> The local branch looks more like a highly sophisticated engine component than the whole novelty story.</p>
+<p>This does not make the local theory unimportant, nor does it prove that every local theorem is old. The narrower conclusion is that <strong>this source audit did not establish an isolable local theorem nucleus already supported by evidence of literature priority.</strong> Structural matches to height-two formal groups, CM and Dwork-style machinery are enough to weaken the early hypothesis that Gser is obviously the wholly new core, but structural similarity or a literature no-hit cannot disprove novelty.</p>
 
-<h2>6. The bottleneck moves global: Count* → VWin</h2>
-<p>Following the dependency chain further shifts attention to <code>VWin</code>. In the pinned source, <code>VWin</code> imposes uniform weighted bounds on Galois-cohomological / Selmer-type lengths across families of characters and windows. It is assembled from quantitative statements such as <code>CountI</code>, <code>CountII</code>, <code>CountIII</code>, <code>CountV</code>, <code>CountZ</code> and <code>LemmaK</code>.</p>
-<p><code>LemmaK</code>, for example, requires finiteness of certain H² groups together with a uniform growth bound for their cardinalities. These controls matter because local theta divisibility can be large and still become analytically useless if projection, integral-lattice or cohomological denominator costs grow too quickly.</p>
-<p>Our current best candidate for the theorem-level novelty burden is therefore not a single local kernel, but <strong>uniform automorphic/Galois-cohomological control strong enough to preserve multiplicity through global projection and denominator loss.</strong></p>
-<p>This is a research judgement, not a priority claim. Establishing historical novelty requires theorem-by-theorem comparison with the literature.</p>
+<h2>6. Global quantitative bottleneck and novelty candidate: Count* → VWin</h2>
+<p>Following the dependency chain further shifts attention to <code>VWin</code>. Literally, the source presents <code>VWin</code> as a uniform cohomological / Sha-length window property: the underlying <code>VVle</code> controls weighted sums of <code>shaLen</code> over primes, and the window machinery propagates this across families of characters. It is assembled from quantitative statements such as <code>CountI</code>, <code>CountII</code>, <code>CountIII</code>, <code>CountV</code>, <code>CountZ</code> and <code>LemmaK</code>.</p>
+<p><code>LemmaK</code>, for example, requires finiteness of certain H² groups together with a uniform growth bound for their cardinalities. Interpreting this region as preventing projection, integral-lattice or denominator losses from erasing multiplicity is a downstream architectural explanation, not the literal statement of <code>VWin</code>; those two levels should be kept distinct.</p>
+<p>Our strongest current theorem-level novelty candidate is therefore the <code>Count*</code> / <code>LemmaK</code> / <code>VWin</code> global quantitative chain. It is genuinely load-bearing in the source dependency graph, but <strong>load-bearing and necessary do not imply literature novelty</strong>. Names such as <code>LiteratureRankNHypothesis</code> and <code>WindowBoundOfLiteratureLevel</code> also remind us that the pipeline explicitly mixes literature-level inputs with internal quantitative development.</p>
+<p>So the claim here is only “novelty candidate,” not a priority verdict. Historical novelty still requires theorem-by-theorem literature collision work.</p>
 
 <div class="repo-cards">
 <div class="repo-card"><h3>Formal layer</h3><p><strong>PASS.</strong> Independent community checks cover the statement, complete build, proof target and kernel validity.</p></div>
 <div class="repo-card"><h3>Mechanism layer</h3><p><strong>Legible.</strong> Iterated theta lifts create multiplicity; global arithmetic control preserves it; a square-root prime/character bound follows.</p></div>
-<div class="repo-card"><h3>Novelty layer</h3><p><strong>Still open.</strong> The local branch no longer looks like the sole new nucleus; the Count*/VWin region deserves a dedicated literature audit.</p></div>
+<div class="repo-card"><h3>Novelty layer</h3><p><strong>Still open.</strong> This audit did not establish a local novelty nucleus; Count*/LemmaK/VWin is the strongest current global candidate, but load-bearing does not equal first-in-literature.</p></div>
 </div>
 
 <h2>7. Why this matters for AI mathematics</h2>
@@ -58,7 +58,7 @@
 <p>Mathematical truth does not become weaker because AI was used. But authorship, credit, explanatory responsibility and the question of who first saw the new concept become much more complicated.</p>
 
 <h2>8. The most precise conclusion we can defend now</h2>
-<div class="boundary-box"><strong>The formal proof has passed independent verification, and its mathematical architecture can already be reconstructed at a useful level:</strong><br><br>
+<div class="boundary-box"><strong>The published Lean formal artifact has passed the currently public independent formal verification, and its mathematical architecture can already be reconstructed at a level precise enough for targeted human criticism:</strong><br><br>
 classical height-two / CM local arithmetic<br>
 → theta-lift divisibility<br>
 → repeat m times → multiplicity<br>
@@ -67,16 +67,18 @@ classical height-two / CM local arithmetic<br>
 → square-root prime / character estimate with m ≍ √x<br>
 → Dirichlet GRH<br>
 → RH.<br><br>
-<strong>The novelty appears less like one magic lemma and more like an architecture that keeps a Stepanov-style multiplicity alive across formal groups, CM, theta lifting, automorphic forms, Galois cohomology and analytic zero detection.</strong></div>
+<strong>Our current novelty hypothesis is that the most important target may be less a single magic lemma than this cross-domain architecture; within it, Count*/LemmaK/VWin is the strongest current theorem-level candidate. This remains a hypothesis for literature audit, not a historical priority verdict.</strong></div>
 
 <h2>Sources &amp; verification</h2>
 <p><a href="https://alpo.ge/remark.pdf" target="_blank" rel="noopener noreferrer">Levent Alpöge, announcement and mathematical sketch ↗</a></p>
 <p><a href="https://leanprover-community.github.io/blog/posts/riemann-hypothesis/" target="_blank" rel="noopener noreferrer">Lean &amp; Mathlib communities, joint verification statement ↗</a></p>
-<p><a href="https://www.math.uwaterloo.ca/~mrubinst/alpoge_claude_grh/" target="_blank" rel="noopener noreferrer">Michael Rubinstein, independent verification and human-readable study ↗</a></p>
+<p><a href="https://math.mit.edu/~drew/grh/" target="_blank" rel="noopener noreferrer">Andrew Sutherland, verification files and independent checks ↗</a></p>
+<p><a href="https://www.math.uwaterloo.ca/~mrubinst/alpoge_claude_grh/" target="_blank" rel="noopener noreferrer">Michael Rubinstein, independent human-readable study ↗</a></p>
 <p><a href="https://github.com/CocoSgt/riemann-hypothesis-lean/tree/7cbf7a0c32fca1badf05931879a37c3f8a2b03b4" target="_blank" rel="noopener noreferrer">Pinned public mirror used for our source-level audit ↗</a></p>
 <p><a href="https://github.com/leanprover-community/riemann-hypothesis" target="_blank" rel="noopener noreferrer">Lean community verification repository ↗</a></p>
+<p><a href="https://www.claymath.org/millennium/riemann-hypothesis/" target="_blank" rel="noopener noreferrer">Clay Mathematics Institute — current RH status ↗</a> · <a href="https://www.claymath.org/millennium-problems/rules/" target="_blank" rel="noopener noreferrer">Millennium Prize rules ↗</a></p>
 
-<div class="boundary-box"><strong>Non-claim:</strong> this is a source-level research reconstruction conducted on 21–22 November 2026. It does not replace a complete human proof exposition, peer review or a historical priority judgement. Our novelty assessment is provisional and may change as the mathematical exposition and literature comparison mature.</div>
+<div class="boundary-box"><strong>Revision note · 23 November 2026:</strong> this update tightens the evidence level after source-level review: dependency establishes load-bearing role, not novelty; the local conclusion is now “no literature-supported novelty nucleus established in this audit”; VWin's literal cohomological/Sha-length content is separated from the downstream denominator-control interpretation; and formal verification is separated from CMI/global-community acceptance.<br><br><strong>Non-claim:</strong> this essay does not replace a complete human proof exposition, peer review or historical priority judgement. The novelty assessment remains provisional and will change if reconstruction of <code>(M)</code> or literature collision work changes the evidence.</div>
 </div></div></section></main>
 <footer class="site-footer-simple"><div class="shell">MirrorTone Lab · Public Research Essay · Riemann Hypothesis · AI-assisted mathematical discovery</div></footer><script defer src="../../../assets/js/site-en.js?v=20261017e"></script>
 </body></html>
